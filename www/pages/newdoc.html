@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/newdoc.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="../js/libs/jquery-3.1.1.min.js"></script>
+    <script src="../js/libs/popper.min.js"></script>
+    <script src="../js/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../cordova.js"></script>
+    <title>CEOSim</title>
+</head>
+
+<body id="areatouch">
+    <div class="container-fluid">
+        <div class="row d-flex d-md-block flex-nowrap wrapper">
+            <div class="col-md-3 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
+                <div class="list-group border-0 card text-center text-md-left">
+                    <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                        <i class="far fa-times-circle"></i>
+                        <span class="d-none d-md-inline">Item 1</span>
+                    </a>
+                    <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+                        <i class="fas fa-font"></i>
+                        <span class="d-none d-md-inline">Item 2</span>
+                    </a>
+                    <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                        <i class="fas fa-align-left"></i>
+                        <span class="d-none d-md-inline">Item 3 </span>
+                    </a>
+                    <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+                        <i class="fas fa-list-ol"></i>
+                        <span class="d-none d-md-inline">Item 4</span>
+                    </a>
+                    <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+                        <i class="fas fa-copy"></i>
+                        <span class="d-none d-md-inline">Item 5</span>
+                    </a>
+                    <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+                        <i class="fas fa-paste"></i>
+                        <span class="d-none d-md-inline">Link</span>
+                    </a>
+                </div>
+            </div>
+            <main class="col-md-9 float-left col px-5 pl-md-2 pt-2 main">
+                <header>
+                    <div class="row">
+                        <div class="col-10 d-block my-auto">
+                            <img src="../img/logosf.png" style="width:50%; height:50%" />
+                        </div>
+                    </div>
+                </header>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
+
+                <footer id="footerMatch">
+                    <div class="btn-group m-0 text-center" role="group" aria-label="First group" style="width:100%">
+                        <div class="row mx-auto" style="width:100%">
+                            <div id="bmar" class="col btn bg-morado-selected txt-blanco" onclick="" data-toggle="modal" data-target="#modalSmall">
+                                <i class="far fa-save pt-1"></i>
+                                <br>
+                                <small>Guardar</small>
+                            </div>
+                            <div id="bfin" onclick="buildFinance()" class="col btn txt-blanco">
+                                <i class="fas fa-file-image pt-1"></i>
+                                <br>
+                                <small>Archivo</small>
+                            </div>
+                            <div id="bpro" onclick="buildProducction()" class="col btn txt-blanco">
+                                <i class="fas fa-trash-alt pt-1"></i>
+                                <br>
+                                <small>Producción</small>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+                <div class="modal fade modal-fullscreen in" id="modalSmall" tabindex="-1" role="dialog" aria-labelledby="modalSmallLabel"
+                    style="display: block; padding-right: 17px;">
+                    <div class="modal-dialog h-75 mt-5 w-75 ml-5" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-morado">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="txt-blanco">×</span>
+                                </button>
+                                <h4 class="modal-title" id="modalSmallLabel">Nuevo Documento</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Título del Documento">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="exampleSelect1">
+                                            <option>Asignatura*</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="exampleSelect2">
+                                            <option>Nivel*</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="exampleSelect3">
+                                            <option>Tipo de Material*</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="exampleSelect4">
+                                            <option>Nivel de Acceso*</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                <button type="button" id="btnTestSaveSmall" class="btn btn-verde" data-glyphicon="glyphicon-ok" data-button-tag="7">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

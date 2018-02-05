@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/home.css">
+    <script src="../js/libs/jquery-3.1.1.min.js"></script>
+    <script src="../js/libs/popper.min.js"></script>
+    <script src="../js/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/partida.js"></script>
+    <script type="text/javascript" src="../cordova.js"></script>
+    <title>CEOSim</title>
+</head>
+
+<body>
+    <header>
+        <div class="row">
+            <div class="col-10 d-block my-auto">
+                <img src="../img/logosf.png" style="width:50%; height:50%" />
+            </div>
+            <div class="col-2">
+                <div class="dropdown p-1 ml-auto">
+                    <button class=" ml-auto mr-2 btn bg-morado" type="button" data-toggle="dropdown">
+                        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" id="menupartida">
+                        <li id="user" class="p-2" onclick="verPerfil()">Perfil de Usuario</li>
+                        <li class="p-2" onclick="app.confirmlogout()">Cerrar Sesión</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid p-0 mt-2 w-100" id="home" style="min-height:100%; display:table">
+        <div id="modulos" class="px-2 pt-5 w-100" style="display: table-cell; vertical-align: middle;">
+            <div class="row m-0 mb-2">
+                <div class="col-6 modulo4 mr-1 text-center pt-4" onclick="buildNewDoc()">
+                    <div class="d-block my-auto mt-1 p-0">
+                        <i class="fas fa-file-alt icon-mod fa-5x" aria-hidden="true"></i>
+                        <p>Nuevo Documento</p>
+                    </div>
+                </div>
+                <div class="col modulo2 text-center pt-4" onclick="buildMaterial()">
+                    <div class="d-block my-auto">
+                        <i class="far fa-folder icon-mod fa-5x" aria-hidden="true"></i>
+                        <p>Mi Material</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-0 mb-2">
+                <div class="col-6 modulo3 mr-2 text-center pt-4" onclick="buildFavor()">
+                    <div class="d-block my-auto">
+                        <i class="fas fa-heart icon-mod fa-5x" aria-hidden="true"></i>
+                        <p>Mis Favoritos</p>
+                    </div>
+                </div>
+                <div class="col modulo1 text-center pt-4" onclick="buildOptions()">
+                    <div class="d-block my-auto">
+                        <i class="pt-1 fas fa-info icon-mod fa-5x" aria-hidden="true"></i>
+                        <p>Otras Opciones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="options" style="display: none;"></div>
+        <div class="mt-2 card div-card-user" id="perfilUser" style="display:none;">
+            <img class="card-img-top" src="" alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title txt-blanco" id="nombreUser">Nombre</h4>
+                <p class="card-text txt-blanco" id="emailUser">Email</p>
+                <div class="row mr-1 ml-1 mt-2">
+                    <div class="col-4">
+                        <p style="font-size:10px">
+                            <i class="fa fa-fw fa-trophy" style="color:#dcca27"></i> puntos</p>
+                    </div>
+                    <div class="col-4">
+                        <p style="font-size:10px">
+                            <i class="fa fa-fw fa-gamepad" style="color:#2B93B6"></i> juegos</p>
+                    </div>
+                    <div class="col-4">
+                        <p style="font-size:10px">
+                            <i class="fa fa-fw fa-line-chart" style="color:#dcca27"></i> +999 en el ranking</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function Loaded() {
+        nothere();
+    }
+</script>
+
+</html>
