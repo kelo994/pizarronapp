@@ -62,3 +62,6 @@ function salirtoModulos() {
     localization = 0;
 }
 
+function logout(){
+    window.location.href = '../index.html';
+}

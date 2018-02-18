@@ -1,12 +1,17 @@
 var log = false;
-var name = "f.acuna08@ufromail.cl";
+var name = "eze.monsal@gmail.com";
 var pass = "123456";
 
 function gotologin() {
     window.location.href = 'pages/login.html';
 }
+
+function gotoreset() {
+    window.location.href = 'resetpass.html';
+}
+
 function login() {
-    var jqxhr = $.post("http://192.168.0.16/backend-pizarron/public/api/login", { email: 'f.acuna08@ufromail.cl', password: '123456' }, function () {
+    var jqxhr = $.post("http://192.168.0.16/backend-pizarron/public/api/login", { email: 'eze.monsal@gmail.com', password: '123456' }, function () {
     })
         .done(function () {
             window.location.href = 'home.html';
@@ -22,7 +27,8 @@ function login() {
         });
 }
 function resetpass() {
-    var jqxhr = $.post("http://192.168.0.16/backend-pizarron/public/api/resetpassword", { email: 'f.acuna08@ufromail.cl' }, function () {
+    var jqxhr = $.post("http://192.168.0.16/backend-pizarron/public/api/resetpassword", { email: 'eze.monsal@gmail.com' }, function (data) {
+        console.log(data);
     })
         .done(function () {
             window.location.href = 'login.html';

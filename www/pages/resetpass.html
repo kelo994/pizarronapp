@@ -16,7 +16,7 @@
     <script type="text/javascript" src="../js/index.js"></script>
 </head>
 
-<body onload="onload()">
+<body>
     <button class=" ml-2 mt-2 btn btn-azul" onclick="backbutton()" id="access">
         <i class="fa fa-chevron-left p-1" aria-hidden="true"></i>
     </button>
@@ -29,14 +29,19 @@
                     <div>
                         <div>
                             <div class="form-group">
+                                <div id="errorlog" style="display:none">
+                                    <p class="txt-rojo text-center">Email incorrecto</p>
+                                </div>
+                                <label class="form-control-label" id="messageEmail"></label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-user txt-azul" aria-hidden="true"></i>
                                     </div>
-                                    <input autofocus class="form-control" type="email" pattern="[a-zA-Z ]{4,64}" name="user_email" placeholder="Email" required/>
+                                    <input id="exampleInputEmail" autofocus class="form-control" type="email" pattern="[a-zA-Z ]{4,64}" name="user_email" placeholder="Email"
+                                        required/>
                                 </div>
                             </div>
-                            <button class="btn btn-verde d-block mx-auto" onclick="">Enviar</button>
+                            <button id="enviar" class="btn btn-verde d-block mx-auto" onclick="resetpass()" disabled="true">Enviar</button>
                         </div>
                     </div>
                 </div>
@@ -45,8 +50,29 @@
     </div>
 </body>
 <script>
-    function onload() {
-        valuever();
+    var email = true;
+    validarReset();
+    $('#exampleInputEmail').on('keyup', function () {
+        if (this.checkValidity() && $(this).val().length > 0) {
+            email = true;
+            document.getElementById("messageEmail").innerHTML = "";
+            $(this).removeClass("form-control-danger").addClass("form-control-success");
+            $(this).parent().removeClass('has-danger').addClass("has-success");
+            validarReset();
+        }
+        else {
+            email = false;
+            document.getElementById("messageEmail").innerHTML = "Correo Invalido";
+            $(this).removeClass("form-control-success").addClass("form-control-danger");
+            $(this).parent().removeClass('has-success').addClass("has-danger");
+        }
+    });
+    function validarReset() {
+        if (email == true) {
+            document.getElementById('enviar').disabled = false;
+        } else {
+            document.getElementById('enviar').disabled = true;
+        }
     }
 </script>
 
