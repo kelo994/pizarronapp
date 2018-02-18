@@ -17,7 +17,7 @@
     <title>CEOSim</title>
 </head>
 
-<body id="body" onload="Loaded()">
+<body id="body">
     <button class=" ml-2 mt-2 btn btn-azul" onclick="backbutton()" id="access">
         <i class="fa fa-chevron-left p-1" aria-hidden="true"></i>
     </button>
@@ -37,33 +37,17 @@
                 <input type="password" class="form-control" id="exampleInputPassword" pattern="[A-Za-z0-9]{6,50}" placeholder="Ingrese Constraseña"
                     minlength="6">
             </div>
-            <button id="acceder" class="btn btn-verde" style="width: 100%;" onclick="app.accederLogin()" disabled="true">Acceder</button>
+            <button id="acceder" class="btn btn-verde" onclick="login()" style="width: 100%;" disabled="true">Acceder</button>
             <div class="divider"></div>
             <label class="form-check-label">
                 <a href="#" onclick="app.resetpass()"> Recuperar contraseña</a>
             </label>
-            <hr class="mt-5">
-            <button type="button" class="btn btn-outline-linkedin mt-3" style="width: 100%; display: none;">Iniciar sesión con Linkedin</button>
-            <div class="form-check" style="display: none;">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" id="check"> Recordarme
-                </label>
-            </div>
-            <div class="form-group" style="display: none">
-
-                <label class="form-check-label">
-                    <a href="#" onclick="app.registrar()" class=""> Registrar</a>
-                </label>
-            </div>
-            <button type="button" class="btn btn-outline-registrar" style="width: 100%; display: none;">Recuperar Contraseña</button>
         </div>
     </div>
 </body>
 <script>
-    function Loaded() {
-        nothere();
-    }
-    var email = false, pass = false;
+    var email = true, pass = true;
+    validarLogin();
     $('#exampleInputEmail').on('keyup', function () {
         if (this.checkValidity() && $(this).val().length > 0) {
             email = true;
