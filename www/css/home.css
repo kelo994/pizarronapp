@@ -107,6 +107,9 @@ body, #home {
 .txt-morado {
   color: #5C6BC0;
 }
+.txt-blanco {
+  color: #fff;
+}
 
 .btn-outline-naranjo {
   border-color: #FF8722;
@@ -230,4 +233,21 @@ min-height:6.250em;*/
   -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
   background-color: #5C6BC0;
+}
+.carduser {
+  border-radius: 7px 7px 7px 7px;
+  background-color: #5C6BC0;
+}
+.perfilcard{
+     border: 5px solid #5C6BC0;
+     border-radius: 7px 7px 7px 7px;
+     background-color: #fff;
+}
+.card-title{
+    font-size: 0.658em;
+}
+
+.card-text{
+    color: #536DFE;
+    font-size: 0.750em;
 }

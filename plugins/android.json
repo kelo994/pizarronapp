@@ -7,9 +7,25 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.example.pizarra"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "com.example.pizarra"
+    },
     "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.example.pizarra"
+    },
+    "cordova-plugin-x-toast": {
       "PACKAGE_NAME": "com.example.pizarra"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "com.example.pizarra"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.example.pizarra"
+    }
+  }
 }

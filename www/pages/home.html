@@ -30,7 +30,7 @@
                         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right" id="menupartida">
-                        <li id="user" class="p-2" onclick="verPerfil()">Perfil de Usuario</li>
+                        <li id="openperfil" class="p-2" onclick="verPerfil()">Perfil de Usuario</li>
                         <li class="p-2" onclick="logout()">Cerrar Sesión</li>
                     </ul>
                 </div>
@@ -68,25 +68,22 @@
                 </div>
             </div>
         </div>
-        <div id="options" style="display: none;"></div>
-        <div class="mt-2 card div-card-user" id="perfilUser" style="display:none;">
-            <img class="card-img-top" src="" alt="Card image">
-            <div class="card-body">
-                <h4 class="card-title txt-blanco" id="nombreUser">Nombre</h4>
-                <p class="card-text txt-blanco" id="emailUser">Email</p>
-                <div class="row mr-1 ml-1 mt-2">
-                    <div class="col-4">
-                        <p style="font-size:10px">
-                            <i class="fa fa-fw fa-trophy" style="color:#dcca27"></i> puntos</p>
-                    </div>
-                    <div class="col-4">
-                        <p style="font-size:10px">
-                            <i class="fa fa-fw fa-gamepad" style="color:#2B93B6"></i> juegos</p>
-                    </div>
-                    <div class="col-4">
-                        <p style="font-size:10px">
-                            <i class="fa fa-fw fa-line-chart" style="color:#dcca27"></i> +999 en el ranking</p>
-                    </div>
+        <div id="options" class="d-none"></div>
+        <div class="mt-5 carduser d-none mx-1" id="perfilUser">
+            <div class="text-center">
+                <img id="userimage" class="card-img-top rounded-circle" src="" alt="Cinque Terre" style="max-width:60%; max-height:60%">
+                <p class="card-title mt-2 txt-blanco" id="username" style="font-size:1em"></p>
+            </div>
+            <div class=" perfilcard">
+                <div class="card-body pl-1">
+                    <p class="card-title">Profesión:</p>
+                    <p class="card-text" id="userprofesion"></p>
+                    <p class="card-title">Cargo:</p>
+                    <p class="card-text" id="usercargo"></p>
+                    <p class="card-title">Establecimiento:</p>
+                    <p class="card-text" id="userestablecimiento"></p>
+                    <p class="card-title">Email:</p>
+                    <p class="card-text" id="useremail"></p>
                 </div>
             </div>
         </div>

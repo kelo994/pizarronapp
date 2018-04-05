@@ -11,10 +11,13 @@ function gotoreset() {
 }
 
 function login() {
-    var jqxhr = $.post("http://192.168.0.16/backend-pizarron/public/api/login", { email: 'eze.monsal@gmail.com', password: '123456' }, function () {
+    var jqxhr = $.post("http://69.164.202.85:8000/api/login", { email: 'm.pinilla03@ufromail.cl', password: '123456' }, function (data) {
     })
-        .done(function () {
+        .done(function (data) {
+            localStorage.token = data.token;
+            localStorage.email = data.email;
             window.location.href = 'home.html';
+
         })
         .fail(function () {
             document.getElementById("errorlog").style.display = "block";
@@ -27,11 +30,12 @@ function login() {
         });
 }
 function resetpass() {
-    var jqxhr = $.post("http://192.168.0.16/backend-pizarron/public/api/resetpassword", { email: 'eze.monsal@gmail.com' }, function (data) {
-        console.log(data);
+    var jqxhr = $.post("http://69.164.202.85:8000/api/resetpassword", { email: 'eze.monsal@gmail.com' }, function (data) {
+
     })
         .done(function () {
             window.location.href = 'login.html';
+
         })
         .fail(function () {
             document.getElementById("errorlog").style.display = "block";
