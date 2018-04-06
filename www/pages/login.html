@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="ISO-8859-1">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -17,7 +18,7 @@
     <title>CEOSim</title>
 </head>
 
-<body id="body">
+<body id="body" onload="Loaded()">
     <button class=" ml-2 mt-2 btn btn-azul" onclick="backbutton()" id="access">
         <i class="fa fa-chevron-left p-1" aria-hidden="true"></i>
     </button>
@@ -31,11 +32,11 @@
             <div class="form-group">
                 <label class="form-control-label" id="messageEmail"></label>
                 <input type="email" class="form-control" id="exampleInputEmail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-                    placeholder="Ingrese su correo" minlength="10">
+                    placeholder="Ingrese su correo" minlength="10" value="m.pinilla03@ufromail.cl">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" id="exampleInputPassword" pattern="[A-Za-z0-9]{6,50}" placeholder="Ingrese Constraseña"
-                    minlength="6">
+                    minlength="6" value="12345">
             </div>
             <button id="acceder" class="btn btn-verde" onclick="login()" style="width: 100%;" disabled="true">Acceder</button>
             <div class="divider"></div>
@@ -46,7 +47,18 @@
     </div>
 </body>
 <script>
-    var email = true, pass = true;
+
+    var email = false, pass = false;
+    function Loaded() {
+        if (vEmail(localStorage.email)) {
+            email = true;
+            $('#exampleInputEmail').val(localStorage.email);
+            document.getElementById("messageEmail").innerHTML = "";
+            $('#exampleInputEmail').removeClass("form-control-danger").addClass("form-control-success");
+            $('#exampleInputEmail').parent().removeClass('has-danger').addClass("has-success");
+            validarLogin();
+        }
+    }
     validarLogin();
     $('#exampleInputEmail').on('keyup', function () {
         if (this.checkValidity() && $(this).val().length > 0) {

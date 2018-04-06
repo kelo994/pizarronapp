@@ -4,6 +4,8 @@ html {
 
 body, #home {
   min-height: 100%;
+  background-image: url("../../res/images/fondo.png");
+  background-size: 100%;
 }
 
 .loading {

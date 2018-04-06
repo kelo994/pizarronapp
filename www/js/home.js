@@ -19,6 +19,8 @@ function onBackKeyDown() {
             'Confirmar',            // title
             ['Si', 'No']          // buttonLabels
         );
+    }if(localStorage.localization == 2){
+        window.location.href = 'home.html';
     } else {
         $('#options').addClass("d-none");
         $('#modulos').removeClass("d-none");
@@ -62,52 +64,53 @@ $(window).on("load", function () {
 
 function buildNewDoc() {
     window.location.href = 'newdoc.html';
+    localStorage.localization = 2;
 }
 
 function buildMaterial() {
-    $.ajax({
-        type: "GET", //GET, POST, PUT
-        url: 'http://69.164.202.85:8000/api/getMaterialProfesor',  //the url to call
-        //Data sent to server
-        beforeSend: function (xhr) {   //Include the bearer token in header
-            xhr.setRequestHeader("Authorization", localStorage.token);
-        }
-    }).done(function (response) {
-        console.log(response);
-        var listamaterial = '';
-        $.each(response, function (key, element) {
-            var fecha = element.created_at.split(" ");
-            listamaterial += '<div class="card mb-2" onclick=""><div class="row m-0 p-2"><div class="col-4 p-0 text-center">' +
-                '<img src="http://69.164.202.85/app/resources/img/prueba.jpg" style="height:100%; width:100%"></div>' +
-                '<div class="col-7 p-0 ml-auto pl-1" style="background-color:white;position:relative;">' +
-                '<p class="card-title">Asignatura: <span class="card-text">' + element.asignatura.nombre_asignatura + '</span></p>' +
-                '<p class="card-title">Título: <span class="card-text">' + element.titulo_material + '</span></p>' +
-                '<p class="card-title">Fecha: <span class="card-text">' + fecha[0] + '</span></p>' +
-                '<div id="likematerial' + element.id + '" class="like mt-auto ml-auto" onclick="likematerial(' + element.id + ')" style="bottom:0px; position:absolute; right:0.3em">' +
-                '<i  class="far fa-heart"></i></div></div></div></div>';
-        });
+$.ajax({
+    type: "GET", //GET, POST, PUT
+    url: 'http://69.164.202.85:8000/api/getMaterialProfesor',  //the url to call
+    //Data sent to server
+    beforeSend: function (xhr) {   //Include the bearer token in header
+        xhr.setRequestHeader("Authorization", localStorage.token);
+    }
+}).done(function (response) {
+console.log(response);
+    var listamaterial = '';
+    $.each(response, function (key, element) {
+        var fecha = element.created_at.split(" ");
+        listamaterial += '<div class="card mb-2" onclick=""><div class="row m-0 p-2"><div class="col-4 p-0 text-center">'+
+                         '<img src="http://69.164.202.85/app/resources/img/prueba.jpg" style="height:100%; width:100%"></div>'+
+                         '<div class="col-7 p-0 ml-auto pl-1" style="background-color:white;position:relative;">'+
+                         '<p class="card-title">Asignatura: <span class="card-text">' + element.asignatura.nombre_asignatura + '</span></p>'+
+                         '<p class="card-title">Título: <span class="card-text">' + element.titulo_material + '</span></p>'+
+                         '<p class="card-title">Fecha: <span class="card-text">' + fecha[0] + '</span></p>'+
+                         '<div id="likematerial' + element.id +'" class="like mt-auto ml-auto" onclick="likematerial('+element.id+')" style="bottom:0px; position:absolute; right:0.3em">'+
+                         '<i  class="far fa-heart"></i></div></div></div></div>';
+    });
 
         $("#options").load("material.html", function () {
             $("#listamaterial").html(listamaterial);
         });
 
-        $('#options').removeClass("d-none");
-        $('#modulos').addClass("d-none");
-        localStorage.localization = 1;
-    }).fail(function (err) {
-        alert("chao");
-    });
+       $('#options').removeClass("d-none");
+       $('#modulos').addClass("d-none");
+       localStorage.localization = 1;
+}).fail(function (err)  {
+    alert("chao");
+});
 }
-function likematerial(idmaterial) {
-    console.log("hola");
-    if ($("#likematerial" + idmaterial).hasClass('like')) {
-        $("#likematerial" + idmaterial).html('<i  class="fas fa-heart"></i>');
-        $("#likematerial" + idmaterial).removeClass('like');
-    } else {
-        $("#likematerial" + idmaterial).html('<i  class="far fa-heart"></i>');
-        $("#likematerial" + idmaterial).addClass('like');
+function likematerial(idmaterial){
+        console.log("hola");
+        if($("#likematerial" + idmaterial).hasClass('like')){
+            $("#likematerial" + idmaterial).html('<i  class="fas fa-heart"></i>');
+            $("#likematerial" + idmaterial).removeClass('like');
+        }else{
+            $("#likematerial" + idmaterial).html('<i  class="far fa-heart"></i>');
+            $("#likematerial" + idmaterial).addClass('like');
+        }
     }
-}
 function buildFavor() {
     $("#options").load("documentos.html");
     document.getElementById('options').style.display = "block";
@@ -131,19 +134,19 @@ function verPerfil() {
             xhr.setRequestHeader("Authorization", localStorage.token);
         }
     }).done(function (response) {
-        console.log(response);
-        $("#openperfil").html("Ver Modulos");
-        $("#openperfil").attr("onclick", "salirtoModulos()");
-        $("#userimage").attr("src", response.profesor.url_foto_profesor);
-        $("#username").html(response.profesor.nombres_profesor + " " + response.profesor.apellidos_profesor);
-        $("#userprofesion").html(response.profesor.profesion);
-        $("#usercargo").html(response.profesor.cargo);
-        $("#useremail").html(response.email);
-        $('#options').addClass("d-none");
-        $('#modulos').addClass("d-none");
-        $('#perfilUser').removeClass("d-none");
-        localStorage.localization = 1;
-    }).fail(function (err) {
+            console.log(response);
+            $("#openperfil").html("Ver Modulos");
+            $("#openperfil").attr("onclick","salirtoModulos()");
+            $("#userimage").attr("src", response.profesor.url_foto_profesor);
+            $("#username").html(response.profesor.nombres_profesor + " " + response.profesor.apellidos_profesor);
+            $("#userprofesion").html(response.profesor.profesion);
+            $("#usercargo").html(response.profesor.cargo);
+            $("#useremail").html(response.email);
+           $('#options').addClass("d-none");
+           $('#modulos').addClass("d-none");
+           $('#perfilUser').removeClass("d-none");
+           localStorage.localization = 1;
+    }).fail(function (err)  {
         alert("chao");
     });
 }
