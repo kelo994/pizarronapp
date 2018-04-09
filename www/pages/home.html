@@ -87,6 +87,88 @@
                 </div>
             </div>
         </div>
+        <div id="fsModal" class="modal animated bounceIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="btn btn-modal-header" data-dismiss="modal">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                        <h1 id="myModalLabel" class="modal-title">
+                            Editar perfil
+                        </h1>
+                        <button class="btn btn-modal-header" onclick="editUser()">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body carduser p-0 w-100">
+                        <div class="text-center mt-1">
+                            <img id="imageuserEdit" onclick="changeimg()" class="card-img-top rounded-circle" src="" alt="Cinque Terre" style="max-width:60%; max-height:60%">
+                        </div>
+                        <div class="mt-2 perfilcard div-card-user" id="perfilUserEdit" style="height: 18.750em;overflow-y: scroll;">
+                            <div class="card-body p-1">
+                                <h6 class="card-text">Nombre:</h6>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="nombreUserEdit" pattern="[A-Za-z]{3,63}$" placeholder="Ingrese su Nombre" minlength="10">
+                                </div>
+                                <h6 class="card-text">Apellido:</h6>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="apellidoUserEdit" pattern="[A-Za-z]{3,63}$" placeholder="Ingrese su Apellido"
+                                        minlength="10">
+                                </div>
+                                <h6 class="card-text">Email:</h6>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="emailUserEdit" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="Ingrese su correo"
+                                        minlength="10">
+                                </div>
+                                <h6 class="card-text">Profesión:</h6>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="profesionUserEdit" pattern="[A-Za-z]{3,63}$" placeholder="Ingrese su frase" minlength="10">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="passModal" class="modal animated bounceIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="btn btn-secondary btn-modal-header" data-dismiss="modal">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                        <p class="modal-title" style="font-size:1.3em">Cambiar Contraseña</p>
+                        <button id="confirmeditPass" class="btn btn-modal-header" disabled="true" onclick="editPass()">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <div class="mt-2 perfilcard div-card-user" style="height: 18.750em">
+                            <div class="card-body p-1">
+                                <h6 class="card-text">Actual</h6>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="passUserEdit" pattern="[A-Za-z0-9]{6,50}" placeholder="Contraseña Actual"
+                                        minlength="6">
+                                </div>
+                                <h6 class="card-text">Nueva</h6>
+                                <p id="newpass"></p>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="nuevaUserEdit" name="newpass" pattern="[A-Za-z0-9]{6,50}" placeholder="Contraseña nueva"
+                                        minlength="6">
+                                </div>
+                                <h6 class="card-text txt-azul">Verificar:</h6>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="nuevavUserEdit" name="newpass" pattern="[A-Za-z0-9]{6,50}" placeholder="Confirmar contraseña nueva"
+                                        minlength="6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
