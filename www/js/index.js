@@ -9,15 +9,25 @@ function gotologin() {
 function gotoreset() {
     window.location.href = 'resetpass.html';
 }
+function backbutton() {
+    window.location.href = '../index.html';
+}
 
 function login() {
-    var jqxhr = $.post("http://69.164.202.85:8000/api/login", { email: 'm.pinilla03@ufromail.cl', password: '123456' }, function (data) {
+    var email =  document.getElementById('exampleInputEmail').value;
+    var pass =  document.getElementById('exampleInputPassword').value;
+    var jqxhr = $.post("http://69.164.202.85:8500/api/login", { email: email, password: pass }, function (data) {
+     navigator.notification.alert(
+                    'Nombre de usuario o contraseña incorrecta',  // message
+                    this.okCallBack,         // callback
+                    'Error al iniciar sesion' + email + " " + pass,            // title
+                    'Entendido'                  // buttonName
+                );
     })
         .done(function (data) {
             localStorage.token = data.token;
             localStorage.email = data.email;
             window.location.href = 'home.html';
-
         })
         .fail(function () {
             document.getElementById("errorlog").style.display = "block";
@@ -38,7 +48,7 @@ function vEmail(email) {
     return true;
 }
 function resetpass() {
-    var jqxhr = $.post("http://69.164.202.85:8000/api/resetpassword", { email: 'eze.monsal@gmail.com' }, function (data) {
+    var jqxhr = $.post("http://69.164.202.85:8500/api/resetpassword", { email: 'eze.monsal@gmail.com' }, function (data) {
 
     })
         .done(function () {
